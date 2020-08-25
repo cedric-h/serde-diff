@@ -522,7 +522,7 @@ impl<'de> de::DeserializeSeed<'de> for DiffCommandIgnoreValue {
                     | (DiffCommandField::AddKey, variant)
                     | (DiffCommandField::EnterKey, variant)
                     | (DiffCommandField::RemoveKey, variant) => {
-                        de::VariantAccess::newtype_variant::<de::IgnoredAny>(variant)?;
+                        de::VariantAccess::newtype_variant::<DiffPathElementValue>(variant)?;
                         Ok(DiffCommandValue::Value(()))
                     }
                     (DiffCommandField::Remove, variant) => {
